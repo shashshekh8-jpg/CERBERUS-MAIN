@@ -1,1 +1,1 @@
-watchdog==4.0.0\nrequests==2.31.0
+watchdog==4.0.0\nrequests==2.31.0\npsutil==5.9.8

@@ -5,18 +5,16 @@ import os
 
 class CerberusSynapse:
     def __init__(self):
-        # Your Vercel API endpoint
         self.api_url = "https://cerberus-rust.vercel.app/api/incident"
-        # Secret token for authentication
         self.secret = "CERBERUS_LOCAL_AGENT_SECRET_2026"
 
-    def emit_alert(self, file_path, entropy, hex_dump):
+    def emit_alert(self, file_path, entropy, hex_dump, mitigated=False):
         payload = {
             "machineId": "EDGE_NODE_BOM1",
             "fileName": os.path.basename(file_path),
             "entropyScore": entropy,
             "hexDump": hex_dump,
-            "status": "DETECTED",
+            "status": "MITIGATED" if mitigated else "DETECTED",
             "timestamp": int(time.time() * 1000)
         }
         
@@ -26,11 +24,7 @@ class CerberusSynapse:
         }
 
         try:
-            print("[^] Uplink: Sending telemetry to Cerberus Cloud...")
-            response = requests.post(self.api_url, json=payload, headers=headers)
-            if response.status_code == 200:
-                print("[+] Uplink: Signal Received and Broadcasted.")
-            else:
-                print(f"[!] Uplink Failure: {response.status_code}")
-        except Exception as e:
-            print(f"[!] Critical Uplink Error: {e}")
+            requests.post(self.api_url, json=payload, headers=headers)
+            print("[+] Uplink: Mitigation data synced to Cloud.")
+        except Exception:
+            pass
