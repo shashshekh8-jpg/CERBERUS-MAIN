@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'CERBERUS | GLOBAL IMMUNE SYSTEM',
+  title: 'CERBERUS | Adaptive Digital Immune System',
+  description: 'Self-supervised ransomware detection using Shannon Entropy.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
