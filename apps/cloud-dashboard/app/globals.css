@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon-green: #00FF41;
+  --alert-red: #FF003C;
+  --bg-color: #050505;
+}
+
+body {
+  color: var(--neon-green);
+  background-color: var(--bg-color);
+  /* Cyberpunk Grid Background */
+  background-image: 
+    linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  overflow: hidden;
+  font-family: 'Courier New', monospace; /* Monospace is crucial for "Tech" feel */
+}
+
+/* THE SCANNER LINE (Constant motion) */
+@keyframes scan {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.5; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.scanner-line {
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: 2px;
+  background: var(--neon-green);
+  box-shadow: 0 0 10px var(--neon-green);
+  animation: scan 3s linear infinite;
+  z-index: 50;
+  pointer-events: none;
+}
+
+/* GLOW UTILITIES */
+.glow-text { text-shadow: 0 0 10px var(--neon-green); }
+.glow-border { box-shadow: 0 0 15px rgba(0, 255, 65, 0.2); }
+.glow-red { text-shadow: 0 0 15px var(--alert-red); }
