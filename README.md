@@ -11,7 +11,7 @@
 [![Real-time](https://img.shields.io/badge/Real--time-Pusher-purple?style=flat-square)](https://pusher.com/)
 [![Database](https://img.shields.io/badge/Database-PostgreSQL-blue?style=flat-square&logo=postgresql)](https://www.postgresql.org/)
 
-[Live Demo](https://cerberus-rust.vercel.app/dashboard) • [Watch Video](#) • [Documentation](https://docs.google.com/document/d/16UQ6mNCjeStpExZQtlEiaPW6a_elJria/edit?usp=sharing&ouid=100336717103328881152&rtpof=true&sd=true)
+[Live Demo](https://cerberus-rust.vercel.app/dashboard) • [Watch Video]() • [Documentation](https://docs.google.com/document/d/16UQ6mNCjeStpExZQtlEiaPW6a_elJria/edit?usp=sharing&ouid=100336717103328881152&rtpof=true&sd=true)
 
 </div>
 
@@ -515,6 +515,7 @@ MIT License - feel free to use this in your own projects!
 Made with 🛡️ at FrostByte 2026
 
 </div>
+
 
 
 
