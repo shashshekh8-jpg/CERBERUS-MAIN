@@ -7,14 +7,26 @@ export default function BioGrid({ active }: { active: boolean }) {
 
   useEffect(() => {
     if (!active) {
-       setCuring(true);
+       setCuring(true); 
        setTimeout(() => setCuring(false), 2000);
     }
   }, [active]);
 
   return (
-    <div className="relative h-full border border-[#00FF41]/30 flex items-center justify-center overflow-hidden">
-      <div className={cn("grid grid-cols-20 gap-3 p-12 transition-all duration-700", active && "scale-95 blur-[1px]")}>
+    <div className="relative h-full border border-[#00FF41]/30 flex items-center justify-center overflow-hidden bg-black/40">
+      
+      {/* NEW: Top Left Title */}
+      <div className="absolute top-4 left-4 text-[10px] font-bold tracking-widest text-[#00FF41]/80 z-20">
+        HOLOGRAPHIC_ENTROPY_MESH
+      </div>
+
+      {/* NEW: Bottom Right Status Indicator */}
+      <div className={cn("absolute bottom-4 right-4 text-[10px] font-mono font-bold z-20", active ? "text-[#FF003C]" : "text-[#00FF41]")}>
+        {active ? "DETECTED: 7.992 BITS" : "BASELINE: 3.500 BITS"}
+      </div>
+
+      {/* The Grid Mesh */}
+      <div className={cn("grid grid-cols-20 gap-3 p-12 transition-all duration-700 z-10", active && "scale-95 blur-[1px]")}>
         {Array.from({ length: 400 }).map((_, i) => (
           <div key={i} className={cn(
             "w-1 h-1 rounded-full transition-all duration-500",
