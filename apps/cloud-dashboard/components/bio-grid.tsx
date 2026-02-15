@@ -15,13 +15,19 @@ export default function BioGrid({ active }: { active: boolean }) {
   return (
     <div className="relative h-full border border-[#00FF41]/30 flex items-center justify-center overflow-hidden bg-black/40">
       
-      {/* NEW: Top Left Title */}
-      <div className="absolute top-4 left-4 text-[10px] font-bold tracking-widest text-[#00FF41]/80 z-20">
+      {/* Top Left Title - Slightly larger for readability */}
+      <div className="absolute top-4 left-4 text-xs font-bold tracking-widest text-[#00FF41]/80 z-20">
         HOLOGRAPHIC_ENTROPY_MESH
       </div>
 
-      {/* NEW: Bottom Right Status Indicator */}
-      <div className={cn("absolute bottom-4 right-4 text-[10px] font-mono font-bold z-20", active ? "text-[#FF003C]" : "text-[#00FF41]")}>
+      {/* UPDATED: Bottom Right Status Indicator 
+         - Changed text-[10px] to text-xl (Much bigger)
+         - Added tracking-widest (Wider spacing)
+      */}
+      <div className={cn(
+        "absolute bottom-4 right-4 text-xl font-mono font-black tracking-widest z-20 transition-colors duration-300", 
+        active ? "text-[#FF003C]" : "text-[#00FF41]"
+      )}>
         {active ? "DETECTED: 7.992 BITS" : "BASELINE: 3.500 BITS"}
       </div>
 
